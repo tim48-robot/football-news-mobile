@@ -34,12 +34,13 @@ class MyHomePage extends StatelessWidget {
       ),
       drawer: const LeftDrawer(),
       // Body halaman dengan padding di sekelilingnya.
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        // Menyusun widget secara vertikal dalam sebuah kolom.
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          // Menyusun widget secara vertikal dalam sebuah kolom.
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
             // Row untuk menampilkan 3 InfoCard secara horizontal.
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -72,7 +73,8 @@ class MyHomePage extends StatelessWidget {
 
                   // Grid untuk menampilkan ItemCard dalam bentuk grid 3 kolom.
                   GridView.count(
-                    primary: true,
+                    primary: false,
+                    physics: const NeverScrollableScrollPhysics(),
                     padding: const EdgeInsets.all(20),
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
@@ -91,6 +93,7 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
+    ),
     );
   }
 }
